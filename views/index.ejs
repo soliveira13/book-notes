@@ -1,0 +1,79 @@
+<%- include("partials/header.ejs") %>
+
+<div class="main-content">
+    <!-- ---------- Header ----------------------------- -->
+    <div class="title">
+        <h1>
+            Sergio De Oliveira
+        </h1>
+        <h2>
+            Books I've Read
+        </h2>
+        <p>
+            Tiny summary but detailed notes for each book. Use the ISBN number to find it from your local library or anywhere else. This page will constantly update as I read more, so bookmark it if you want to check back in a few months.
+        </p>
+        <div class="sorted-by">
+            <p>Sorte by:
+                <a href="/best">Best</a>
+                <a href="/title">Title</a>
+                <a href="/newest">Newest</a>
+            </p>
+        </div>
+    </div>
+    <hr>
+
+    <!-- --------------------- Books Section ---------------------- -->
+    <section id="all-books">
+        <div class="book">
+            <figure>
+                <a href="/">
+                    <img src="/images/NegotiateAnything.webp" loading="lazy" alt="You Can Negotiate Anything - by Herb Cohen">
+                </a>
+            </figure>
+            <h2>
+                <a href="/">You Can Negotiate Anything - by Herb Cohen</a>
+            </h2>
+            <small>
+                Date Read: 2023-08-02 |
+            </small>
+            <small>
+                My Score: <strong>10</strong>/10
+            </small>
+            <p>
+                Everything is negotiable. Challenge authority. You have the power in any situation. This is how to realize it and use it. A must-read classic from 1980 from a master negotiator. My notes here aren’t enough because the little book is filled with so many memorable stories — examples of great day-to-day moments of negotiation that will stick in your head for when you need them. (I especially loved the one about the power of the prisoner in solitary confinement.) So go buy and read the book. I’m giving it a 10/10 rating even though the second half of the book loses steam, because the first half is so crucial.
+            </p>
+            <p class="read-note">
+                <strong>
+                    <a href="/">Ready my notes</a>
+                </strong>
+            </p>
+        </div>
+        <hr>
+        <div class="book">
+            <figure>
+                <a href="/">
+                    <img src="/images/ListeningBook.webp" loading="lazy" alt="The Listening Book - by W.A. Mathieu">
+                </a>
+            </figure>
+            <h2>
+                <a href="/">The Listening Book - by W.A. Mathieu</a>
+            </h2>
+            <small>
+                Date Read: 2021-09-03 |
+            </small>
+            <small>
+                My Score: <strong>10</strong>/10
+            </small>
+            <p>
+                Everyone should read this book of little essays about listening. It teaches your ears to pay more attention. It calls your attention to sounds you hadn’t noticed. It’s beautifully written, and makes your life better. I read it twice, 24 years ago, and reading it again this week, it was even better than I remembered.
+            </p>
+            <p class="read-note">
+                <strong>
+                    <a href="/">Ready my notes</a>
+                </strong>
+            </p>
+        </div>
+    </section>
+</div>
+
+<%- include("partials/footer.ejs") %>

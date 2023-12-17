@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "axios": "^1.6.2",
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "pg": "^8.11.3"
+  },
+  "name": "book-notes",
+  "version": "1.0.0",
+  "description": "Notes from books that I've read",
+  "main": "index.js",
+  "type": "module",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sergio De Oliveira",
+  "license": "ISC"
+}

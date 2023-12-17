@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(/images/gray-circular-gradient.png);
+    background-size: cover;
+    color: #333;
+    line-height: 1.6;
+}
+
+
+/* --------------- Header and Navivation ---------------------- */
+
+#header {    
+    display: flex;
+}
+
+#header nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    color: white;
+    margin: 20px 20px;
+}
+
+#header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+#header nav ul li {
+    padding: 0 10px;
+}
+
+#header nav ul li a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+}
+
+#header nav ul li a::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    position: absolute;
+    background: white;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
+}
+
+#header nav ul li a:hover::after {
+    width: 100%;
+}
+
+
+/* ---------- Home Page Title --------- */
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 30px auto;
+    background-color: #fff;
+    padding: 20px 40px;
+    color: #333;
+    line-height: 1.6;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+}
+
+.title h1 {
+    font-size: 4em;
+    margin: 20px 0;
+    text-align: start;
+}
+
+.title h2 {
+    font-size: 3em;
+}
+
+.title p {
+    margin: 20px 0;
+    font-size: 20px;
+}
+
+.sorted-by {
+    display: flex;
+}
+
+.sorted-by a {
+    margin: 5px;
+    color: #222;
+    text-decoration: none;
+    position: relative;
+}
+
+.sorted-by a::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    position: absolute;
+    background: #444;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
+}
+
+.sorted-by a:hover::after {
+    width: 100%;
+}
+
+/* --------------------- Books Section ------------------------ */
+
+.book {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.book figure a img {
+    float: left;
+    margin-right: 20px;
+}
+
+.book h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.book h2 a {
+    text-decoration: none;
+    color: #222;
+}
+
+.book small {
+    font-size: 18px;
+    color: #666;
+}
+
+.book p {
+    margin-top: 10px;
+    font-size: 20px;
+    text-align: justify;
+}
+
+.book .read-note strong a {
+    text-decoration: none;
+    color: #222;
+    position: relative;
+}
+
+.book .read-note strong a::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    position: absolute;
+    background: #444;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
+}
+
+.book .read-note strong a:hover::after {
+    width: 100%;
+}
+
