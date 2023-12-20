@@ -29,9 +29,14 @@ body {
     margin: 20px 20px;
 }
 
+#header nav p {
+    margin-bottom: 0;
+}
+
 #header nav ul {
     display: flex;
     list-style: none;
+    margin-bottom: 0;
 }
 
 #header nav ul li {
@@ -59,8 +64,12 @@ body {
     width: 100%;
 }
 
+.hr-header {
+    margin: 0;
+}
 
-/* ---------- Home Page Title --------- */
+
+/* ---------- Home Page - Title Section --------- */
 
 .main-content {
     display: flex;
@@ -122,7 +131,7 @@ body {
     width: 100%;
 }
 
-/* --------------------- Books Section ------------------------ */
+/* --------------------- Home Page - Books Section ------------------------ */
 
 .book {
     margin-top: 40px;
@@ -132,6 +141,7 @@ body {
 .book figure a img {
     float: left;
     margin-right: 20px;
+    height: 187px;
 }
 
 .book h2 {
@@ -175,4 +185,42 @@ body {
 .book .read-note strong a:hover::after {
     width: 100%;
 }
+
+/* --------------------- Admin Page ------------------------ */
+.main-content h2 {
+    margin-bottom: 30px;
+}
+
+.main-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content form input, 
+.main-content form textarea {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+    outline: none;
+}
+
+.main-content button {
+    width: 70px;
+    text-decoration: none;
+    background-color: #007bff;
+    color: #fff;
+    padding:     8px;
+    font-size: 1em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.5s
+}
+
+.main-content button:hover {
+    background-color: #0056b3;
+}
+
 

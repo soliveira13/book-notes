@@ -1,0 +1,75 @@
+<%- include("partials/header.ejs") %>
+
+<div class="main-content">
+    <h2><%= heading %></h2>
+
+    <% if (locals.book) { %>
+        <form id="editBook" method="post" action="/admin/edit/<%= book.id %>">
+            <input type="text" name="title" value="<%= book.book_title %>">
+            <input type="text" name="author" value="<%= book.author_name %>">
+            <input type="text" name="isbn" value="<%= book.isbn %>">
+            <input type="date" name="dateRead" value="<%= dateRead %>">
+            <input type="text" name="score" value="<%= book.score %>">
+            <textarea name="bookReview" rows="5"><%= book.book_review %></textarea>
+            <% if (locals.note) { %>
+                <textarea name="bookNote" rows="15"><%= note.note_content %></textarea>
+            <% } else { %>
+                <textarea name="bookNote" rows="15" placeholder="Book Note"></textarea>
+            <% } %>
+            <button class="btn-edit" type="submit"><%= submit %></button>
+        </form>
+    <% } else { %>
+        <form id="addBook" method="post" action="/add">
+            <input type="text" name="title" placeholder="Book Title" required>
+            <input type="text" name="author" placeholder="Author" required>
+            <input type="text" name="isbn" placeholder="ISBN" required>
+            <input type="date" name="dateRead" placeholder="Date Read" required>
+            <input type="text" name="score" placeholder="Score" required>
+            <textarea name="bookReview" rows="5" placeholder="Book Review" required></textarea>
+            <textarea name="bookNote" rows="15" placeholder="Book Note"></textarea>
+            <button class="btn-add" type="submit"><%= submit %></button>
+        </form>    
+    <% } %>
+</div>
+<div class="main-content">
+    <h2>List of All Books</h2>
+    <table id="books-table" class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">ISBN</th>
+                <th scope="col">Date Read</th>
+                <th scope="col">Score</th>
+            </tr>
+        </thead>
+        <% for(let book of listBooks) { %>
+            <tr>
+                <th scope="row"><%= book.id %></th>
+                <td>
+                    <%= book.book_title %>
+                </td>
+                <td>
+                    <%= book.author_name %>
+                </td>
+                <td>
+                    <%= book.isbn %>
+                </td>
+                <td>
+                    <%= book.date_read.toString().slice(0, 15) %>
+                </td>
+                <td>
+                    <%= book.score %>
+                </td>
+                <td>
+                    <a href="/admin/edit/<%= book.id %>">Edit</a>
+                    <a href="/admin/delete/<%= book.id %>">Delete</a>
+                </td>
+            </tr>
+        <% } %>
+    </table>
+</div>
+
+<%- include("partials/footer.ejs") %>
+
