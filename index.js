@@ -29,16 +29,6 @@ async function getAllBooks() {
 
         books.forEach(async (book) => {
             getBookCover(book.isbn)
-                // .then((imagePath) => {
-                //     if (imagePath) {
-                //         console.log(`Image saved to: ${imagePath}`);
-                //     } else {
-                //         console.log("Failed to fetch image");
-                //     }
-                // })
-                // .catch((error) => {
-                //     console.error(error);
-                // });
         });
 
         return books;
@@ -72,11 +62,6 @@ async function getBookCover(isbn) {
 
         const writer = fs.createWriteStream(imagePath);
         response.data.pipe(writer);
-
-        // return new Promise((resolve, reject) => {
-        //     writer.on("finish", () => resolve(imagePath));
-        //     writer.on("error", reject);
-        // });
 
     } catch (error) {
         console.error(error);
@@ -146,7 +131,41 @@ app.get("/admin", async (req, res) => {
     } catch (error) {
         console.error(error);
     }
-})
+});
+
+// Book Detailed Page with notes. Based on the book id
+app.get("/:id", async (req, res) => {
+    try {
+        const currentId = parseInt(req.params.id);
+
+        // Get the book data by the id provided
+        const resultBook = await db.query(
+            "SELECT * FROM book WHERE id = $1",
+            [currentId]
+        );
+        const book = resultBook.rows[0];
+
+        // Get book notes by the id provided
+        const resultNote = await db.query(
+            "SELECT * FROM note WHERE book_id = $1",
+            [currentId]
+        );
+        const note = resultNote.rows[0];
+    
+        // Takes the note_content string, finds all occurrences of newline characters (\n), 
+        // And replaces them with HTML line break tags (<br>).
+        const noteWithLineBreaks = note.note_content.replace(/\n/g, '<br>');
+       
+        res.render("book-detail.ejs", {
+            book: book,
+            note: noteWithLineBreaks
+        });
+        
+    } catch (error) {
+        console.log("Book Detailed rout.");
+        console.error(error);
+    }
+});
 
 // Add a new book
 app.post("/add", async (req, res) => {
@@ -169,7 +188,6 @@ app.post("/add", async (req, res) => {
 
         
         if (bookNote) {
-            console.log("Inserting note into note table.");
             bookId = result.rows[0].id;
 
             await db.query(
@@ -241,8 +259,7 @@ app.post("/admin/edit/:id", async (req, res) => {
            "UPDATE book SET book_title = $2, author_name = $3, isbn = $4, date_read = $5, score = $6, book_review = $7 WHERE id = $1",
            [currentId, bookTitle, authorName, isbn, dateRead, score, bookReview] 
         );
-         
-        console.log(bookNote);
+    
         // Insert note content into note table if book_id does not exist, otherwise, it updates the note table
         await db.query(
             "INSERT INTO note (book_id, note_content) VALUES ($1, $2) ON CONFLICT (book_id) DO UPDATE SET note_content = EXCLUDED.note_content;",

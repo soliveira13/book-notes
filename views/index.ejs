@@ -27,12 +27,12 @@
         <% for(let book of listBooks) { %>
             <div class="book">
                 <figure>
-                    <a href="/">
+                    <a href="/<%= book.id %>">
                         <img src="/images/<%= book.isbn %>-M.jpg" loading="lazy" alt="<%= book.book_title %>">
                     </a>
                 </figure>
                 <h2>
-                    <a href="/"><%= book.book_title %> - by <%= book.author_name %></a>
+                    <a href="/<%= book.id %>"><%= book.book_title %> - by <%= book.author_name %></a>
                 </h2>
                 <small>
                     Date Read: <%= book.date_read.toString().slice(0, 15) %> |
@@ -45,7 +45,7 @@
                 </p>
                 <p class="read-note">
                     <strong>
-                        <a href="/">Ready my notes</a>
+                        <a href="/<%= book.id %>">Ready my notes</a>
                     </strong>
                 </p>
             </div>

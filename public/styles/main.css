@@ -186,6 +186,35 @@ body {
     width: 100%;
 }
 
+
+/* --------------------- Book Detail Page ------------------------  */
+
+.main-content .book-detail {
+    margin: 20px 0;
+}
+
+.main-content .book-detail figure a img {
+    float: left;
+    margin-right: 20px;
+    /* height: 187px; */
+}
+
+.main-content .book-detail h2 {
+    margin-bottom: 20px;
+}
+
+.main-content .book-detail small {
+    font-size: 18px;
+    color: #666;
+}
+
+.main-content .book-detail p {
+    margin-top: 10px;
+    font-size: 20px;
+    text-align: justify;
+}
+
+
 /* --------------------- Admin Page ------------------------ */
 .main-content h2 {
     margin-bottom: 30px;

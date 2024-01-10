@@ -64,7 +64,8 @@
                 </td>
                 <td>
                     <a href="/admin/edit/<%= book.id %>">Edit</a>
-                    <a href="/admin/delete/<%= book.id %>">Delete</a>
+                    <a href="/admin/delete/<%= book.id %>" onclick="return confirm('Do you wish to delete this book?')">Delete</a>
+                    <!-- <a href="/admin/delete/<%= book.id %>">Delete</a> -->
                 </td>
             </tr>
         <% } %>

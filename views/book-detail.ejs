@@ -1,0 +1,47 @@
+<%- include("partials/header.ejs")  %>
+
+<div class="main-content">
+    <div class="book-detail">
+        <% if (locals.book) { %>
+            <figure>
+                <a href="/">
+                    <img src="/images/<%= book.isbn %>-M.jpg" loading="lazy" alt="<%= book.book_title %>">
+                </a>
+            </figure>
+            <h2>
+                <%= book.book_title %> - by <%= book.author_name %>
+            </h2>
+            <p>
+                <small>
+                    ISBN: <%= book.isbn %> <br>
+                </small>
+            </p>
+            <p>    
+                <small>
+                    Date Read: <%= book.date_read.toString().slice(0, 15) %> <br>
+                </small>
+            </p>
+            <p>
+                <small>
+                    My Score: <strong><%= book.score %></strong>/10
+                </small>
+            </p>
+            <br>
+            <p>
+                Go to the <a href="/">Amazon page</a> for details and reviews.
+            </p>
+            <p>
+                <%= book.book_review %>                    
+            </p>
+            <br>
+            <h4>
+                MY NOTES
+            </h4>
+            <p>
+                <%- note %>
+            </p>
+        <% } %>
+    </div>
+</div>
+
+<%- include("partials/footer.ejs") %>
