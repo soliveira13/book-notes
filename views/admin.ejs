@@ -19,16 +19,19 @@
             <button class="btn-edit" type="submit"><%= submit %></button>
         </form>
     <% } else { %>
-        <form id="addBook" method="post" action="/add">
-            <input type="text" name="title" placeholder="Book Title" required>
-            <input type="text" name="author" placeholder="Author" required>
-            <input type="text" name="isbn" placeholder="ISBN" required>
-            <input type="date" name="dateRead" placeholder="Date Read" required>
-            <input type="text" name="score" placeholder="Score" required>
-            <textarea name="bookReview" rows="5" placeholder="Book Review" required></textarea>
-            <textarea name="bookNote" rows="15" placeholder="Book Note"></textarea>
-            <button class="btn-add" type="submit"><%= submit %></button>
-        </form>    
+        <button id="toggleAddBook" class="toggle-button">Expand</button>
+        <div id="addBookContent" style="display: none;">
+            <form id="addBook" method="post" action="/add">
+                <input type="text" name="title" placeholder="Book Title" required>
+                <input type="text" name="author" placeholder="Author" required>
+                <input type="text" name="isbn" placeholder="ISBN" required>
+                <input type="date" name="dateRead" placeholder="Date Read" required>
+                <input type="text" name="score" placeholder="Score" required>
+                <textarea name="bookReview" rows="5" placeholder="Book Review" required></textarea>
+                <textarea name="bookNote" rows="15" placeholder="Book Note"></textarea>
+                <button class="btn-add" type="submit"><%= submit %></button>
+            </form> 
+        </div>   
     <% } %>
 </div>
 <div class="main-content">
@@ -65,7 +68,6 @@
                 <td>
                     <a href="/admin/edit/<%= book.id %>">Edit</a>
                     <a href="/admin/delete/<%= book.id %>" onclick="return confirm('Do you wish to delete this book?')">Delete</a>
-                    <!-- <a href="/admin/delete/<%= book.id %>">Delete</a> -->
                 </td>
             </tr>
         <% } %>
@@ -73,4 +75,23 @@
 </div>
 
 <%- include("partials/footer.ejs") %>
+
+<script>
+    const toggleButton = document.getElementById("toggleAddBook");
+    const addBookContent = document.getElementById("addBookContent");
+    
+    toggleButton.addEventListener("click", function() {
+        if (addBookContent.style.display === "none") {
+            addBookContent.style.display = "block";
+
+            toggleButton.textContent = "Contract";
+            toggleButton.style.marginBottom = "20px";
+            toggleButton.style.width = "80px";
+
+        } else {
+            addBookContent.style.display = "none";
+            toggleButton.textContent = "Expand";
+        }
+    });
+</script>
 
