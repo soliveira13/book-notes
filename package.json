@@ -9,7 +9,8 @@
     "express-session": "^1.18.0",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
-    "pg": "^8.11.3"
+    "pg": "^8.11.3",
+    "pg-pool": "^3.6.1"
   },
   "name": "book-notes",
   "version": "1.0.0",
